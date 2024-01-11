@@ -8,6 +8,12 @@
 	<title>Game</title>
 </head>
 <body>
-	<!-- TODO: add a form for the user to play the game -->
+    <h1>Translation Quiz</h1>
+    <p>English word: <strong><?= $game->randomEnglishWord();?></strong></p>
+    <form method="POST">
+        <label>Translation:</label>
+        <input placeholder="your answer in Dutch" name="dutch-answer">
+        <button type="submit">Check</button>
+    </form>
 </body>
 </html>
