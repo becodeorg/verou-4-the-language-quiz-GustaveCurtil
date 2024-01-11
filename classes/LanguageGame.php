@@ -15,8 +15,11 @@ class LanguageGame
         }
     }
 
-    public function randomWord(){
-        echo "hallo"; 
+    public function randomWord()
+    {
+        $randomIndex = array_rand($this->words);
+        $randomWord = $this->words[$randomIndex];
+        return $randomWord; 
     }
 
     public function run(): void
@@ -25,7 +28,7 @@ class LanguageGame
 
         // Option A: user visits site first time (or wants a new word)
         // TODO: select a random word for the user to translate
-        echo $this->randomWord();
+        var_dump($this->randomWord());
 
         // Option B: user has just submitted an answer
         // TODO: verify the answer (use the verify function in the word class) - you'll need to get the used word from the array first

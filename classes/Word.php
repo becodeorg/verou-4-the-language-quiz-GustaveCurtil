@@ -2,18 +2,18 @@
 
 class Word
 {
-    private string $word;
-    private string $answer;
+    public string $englishTranslation;
+    public string $dutchTranslation;
 
-    public function __construct()
+    public function __construct($englishTranslation, $dutchTranslation)
     {
-        $this->word = $word;
-        $this->answer = $answer;
+        $this->englishTranslation = $englishTranslation;
+        $this->dutchTranslation = $dutchTranslation;
     }
 
     public function verify(string $answer): bool
     {
-        if (strtolower($this->word) === strtolower($this->answer)) {
+        if (strtolower($this->dutchTranslation) === strtolower($this->answer)) {
             return true;
         } else {
             return false;
