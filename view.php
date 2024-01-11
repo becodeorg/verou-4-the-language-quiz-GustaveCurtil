@@ -9,11 +9,15 @@
 </head>
 <body>
     <h1>Translation Quiz</h1>
-    <p>English word: <strong><?= $game->randomEnglishWord();?></strong></p>
+    <p>English word: <strong><?= $_SESSION["Word"]->getDutchTranslation()?></strong></p>
     <form method="POST">
         <label>Translation:</label>
-        <input placeholder="your answer in Dutch" name="dutch-answer">
+        <input placeholder="your answer in Dutch" name="player-answer">
         <button type="submit">Check</button>
     </form>
+    <br>
+    <p>Fout/Juist</p>
+    <button>New word</button>
+
 </body>
 </html>
