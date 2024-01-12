@@ -6,11 +6,13 @@ class Player
     private $name;
     private $score;
 
-    public function __construct($score, $name = 'player')
+    public function __construct($name = 'player', $score = 0)
     {
         // TODO: add 👤 automatically to their name
         $this->name = $name;
-        $this->score = $score;
+
+        $_SESSION["score"] = 0;
+        $this->score = $_SESSION["score"]  
     }
 
     public function getName()
@@ -20,16 +22,17 @@ class Player
 
     public function getScore() 
     {
+        $this->score = $_SESSION["score"];
         return $this->score;
     }
 
     public function increaseScore() 
     {
-        $this->score += 1;
+        $_SESSION["score"] += 1;
     }
 
     public function resetScore()
     {
-        $this->score = 0;
+        $_SESSION["score"] = 0;
     }
 }
