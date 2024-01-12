@@ -42,15 +42,20 @@ class LanguageGame
             $_SESSION["Tries"] = 1;
             $_SESSION["Result"] = null;
             $_SESSION["Word"] = $this->word;
+            $_SESSION["inGame"] = "inherit";
             $this->player->resetScore();
             // print_r($this->word);
         } else {
-            $_SESSION["Tries"] += 1;
-            if ($_SESSION["Word"]->verify($_POST['player-answer']))
-            {
-                $this->player->increaseScore();
+            if ($_SESSION["Tries"]<11) {
+                $_SESSION["Tries"] += 1;
+                if ($_SESSION["Word"]->verify($_POST['player-answer']))
+                {
+                    $this->player->increaseScore();
+                }
+                $_SESSION["Word"] = $this->word;
+            } else {
+                echo "done";
             }
-            $_SESSION["Word"] = $this->word;
         }
     }
 

@@ -10,8 +10,8 @@
 <body>
     <h1>Translation Quiz</h1>
     <button onclick="document.location=''">Start Game</button>
-    <p>English word N°<?=$_SESSION["Tries"];?> <strong><?= $game->word->getDutchTranslation()?></strong></p>
-    <form method="POST">
+    <p style="display:<?= $_SESSION["inGame"] ;?>">English word N°<?=$_SESSION["Tries"];?> <strong><?= $game->word->getDutchTranslation()?></strong></p>
+    <form  style="display:<?= $_SESSION["inGame"] ;?>" method="POST">
         <label>Translation:</label>
         <input placeholder="your answer in Dutch" name="player-answer">
         <button type="submit">Check</button>

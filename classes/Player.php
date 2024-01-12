@@ -12,7 +12,7 @@ class Player
         $this->name = $name;
 
         $_SESSION["score"] = 0;
-        $this->score = $_SESSION["score"]  
+        $this->score = $_SESSION["score"];
     }
 
     public function getName()
