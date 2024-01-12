@@ -38,7 +38,7 @@ class LanguageGame
             $_SESSION["Word"] = $this->randomWord();
             $_SESSION["Result"] = null;
             $_SESSION["Tries"] = 1;
-            $_SESSION["Corrects"] = 0;
+            $_SESSION["Score"] = 0;
 
             // print_r($this->word);
         } else {
