@@ -3,7 +3,6 @@
 class LanguageGame
 {
     private array $words;
-    private $word;
 
     public function __construct()
     {
@@ -36,18 +35,23 @@ class LanguageGame
         // TODO: generate a message for the user that can be shown
         
         if (empty($_POST)) {
-            $this->word = $this->randomWord();
-            $_SESSION["Word"] = $this->word;
+            $_SESSION["Word"] = $this->randomWord();
+            $_SESSION["Result"] = null;
+            $_SESSION["Tries"] = 1;
+            $_SESSION["Corrects"] = 0;
 
             // print_r($this->word);
         } else {
             if ($_SESSION["Word"]->verify($_POST['player-answer']))
             {
-                echo 'correct, het antwoord was : ' . $_SESSION["Word"]->getDutchTranslation();
+                $_SESSION["Corrects"] += 1;
+                $_SESSION["Result"] = 'CORRECT! The answer was indeed : <strong>' . $_SESSION["Word"]->getDutchTranslation() . "</strong>";
+
             } else {
-                echo "fout, het antwoord was : " . $_SESSION["Word"]->getDutchTranslation();
+                $_SESSION["Result"] = "WRONG!!! The answer was : <strong>" . $_SESSION["Word"]->getDutchTranslation() . "</strong>";
             }
             $_SESSION['Word'] = $this->randomWord();
+            $_SESSION["Tries"] += 1;
         }
     }
 
